@@ -11,4 +11,14 @@ router.get('/', function(req, res) {
     );
 });
 
+router.get('/:id', function(req, res, next) {
+    res.send(
+        {
+            title:"This is some secure object got with parameter.",
+            idPassed:req.params.id
+        }
+    );
+});
+
+
 module.exports = router;
