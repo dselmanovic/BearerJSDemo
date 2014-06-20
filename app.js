@@ -64,7 +64,8 @@ bearer({
         console.log("this will be executed if request fails authentication");
     },
     secureRoutes:[
-        {url:'/secure', method:'get'}
+        {url:'/secure', method:'get'},
+        {url:'/secure/*', method:'get'}
     ]
 });
 
