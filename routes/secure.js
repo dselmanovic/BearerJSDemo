@@ -20,5 +20,12 @@ router.get('/:id', function(req, res, next) {
     );
 });
 
+router.post('/', function(req, res) {
+    res.send(
+        {
+            title:"This is some secure POST location"
+        }
+    );
+});
 
 module.exports = router;

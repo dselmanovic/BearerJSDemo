@@ -57,6 +57,12 @@ bearer({
         //Returning false from this method will reject user even if his token is OK
         return true;
     },
+    userInRole:function(token, role){
+        //Provide role level access restrictions on url
+        //You can use onTokenValid for this also, but I find this easier to read later
+        //If you specified "roles" property for any secureRoute below, you must implement this method
+        return true;
+    },
     onAuthorized: function(req, token){
         console.log("this will be executed if request is OK");
     },
@@ -65,7 +71,8 @@ bearer({
     },
     secureRoutes:[
         {url:'/secure', method:'get'},
-        {url:'/secure/*', method:'get'}
+        {url:'/secure', method:'post', roles:["admin"]},
+        {url:'/secure/*', method:'get'} //any action under /secure route but NOT default "/secure" route
     ]
 });
 
